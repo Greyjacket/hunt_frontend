@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #23265f;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+/* .form {
+  max-width: 330px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /*align-items: center;
+  background: white;
+  padding: 20px;
+  margin-top:45vh;
+} */
+
+.loginFormContainer {
+  background-image: url("https://www.visittheusa.com/sites/default/files/styles/16_9_1280x720/public/2016-10/HERO%201_GettyImages-182773106_Cropped_Web72DPI.jpg?itok=O0Vd_KdQ");
+  height:'100vh';
+  font-size:'50px';
+  background-size: 'cover';
+  background-repeat: 'no-repeat';
+}
+
+.loginForm {
+  max-width: 33vw;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: space-between;
+  gap: 2em;
+  background: #e6dfdf;
+  padding: 20px;
+  margin-top: 33vh;
+}
+
+.form .form__custom-button {
+  margin-top: 50px;
+}
