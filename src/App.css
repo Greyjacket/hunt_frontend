@@ -11,7 +11,7 @@ body, html {
   position: absolute;
   height: 100%;
   width: 100%;
-  background-color: black;
+  background-color: #e7e4e4;
 }
 
 .loginFormContainer {
@@ -36,4 +36,9 @@ body, html {
   background: #e6dfdf;
   padding: 20px;
   margin-top: 33vh;
+}
+
+.loginLogoHeader {
+  position: relative;
+  height: 10vh;
 }
