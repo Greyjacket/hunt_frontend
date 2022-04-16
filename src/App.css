@@ -3,37 +3,30 @@
   padding: 0;
 }
 
-body {
-  background: #23265f;
+body, html {
+  height: 100%;
 }
 
 .App {
-  font-family: sans-serif;
-  text-align: center;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: black;
 }
 
-/* .form {
-  max-width: 330px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  /*align-items: center;
-  background: white;
-  padding: 20px;
-  margin-top:45vh;
-} */
-
 .loginFormContainer {
-  background-image: url("https://www.visittheusa.com/sites/default/files/styles/16_9_1280x720/public/2016-10/HERO%201_GettyImages-182773106_Cropped_Web72DPI.jpg?itok=O0Vd_KdQ");
-  height:'100vh';
-  font-size:'50px';
+  position: absolute;
+  width: 100%;
+  height: 100%;
   background-size: 'cover';
-  background-repeat: 'no-repeat';
+  background-position: center;
+  background: url("https://www.visittheusa.com/sites/default/files/styles/16_9_1280x720/public/2016-10/HERO%201_GettyImages-182773106_Cropped_Web72DPI.jpg?itok=O0Vd_KdQ") center center no-repeat;
+  filter: grayscale(15%);
 }
 
 .loginForm {
-  max-width: 33vw;
+  position: relative;
+  max-width: 330px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -43,8 +36,4 @@ body {
   background: #e6dfdf;
   padding: 20px;
   margin-top: 33vh;
-}
-
-.form .form__custom-button {
-  margin-top: 50px;
 }
