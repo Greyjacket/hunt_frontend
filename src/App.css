@@ -33,12 +33,21 @@ body, html {
   justify-content: center;
   align-content: space-between;
   gap: 2em;
-  background: #e6dfdf;
+  background: white;
   padding: 20px;
   margin-top: 33vh;
+  border-radius: 15px;
+  filter: drop-shadow(5px 2px 5px #000000);
+  /* background:linear-gradient(to left bottom, #e9e9e9, #ebebeb, #d6d6d6, #b1b1b1, #9ca6cb); */
 }
 
 .loginLogoHeader {
   position: relative;
+  text-align: center;
   height: 10vh;
+}
+
+.loginLogo {
+  height: 80px;
+  width: 170px;
 }
