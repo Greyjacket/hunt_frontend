@@ -11,17 +11,23 @@ body, html {
   position: absolute;
   height: 100%;
   width: 100%;
-  background-color: #e7e4e4;
 }
 
 .loginFormContainer {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-size: 'cover';
   background-position: center;
   background: url("https://www.visittheusa.com/sites/default/files/styles/16_9_1280x720/public/2016-10/HERO%201_GettyImages-182773106_Cropped_Web72DPI.jpg?itok=O0Vd_KdQ") center center no-repeat;
-  filter: grayscale(15%);
+  -webkit-background-size: 100% 80%;
+  -moz-background-size: 100% 80%;
+  -o-background-size: 100% 80%;
+  background-size: 100% 80%;
+}
+
+.loginLogo {
+  height: 80px;
+  width: 170px;
 }
 
 .loginForm {
@@ -30,24 +36,60 @@ body, html {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-content: space-between;
+  justify-content: flex-start;
+  align-items: center;
   gap: 2em;
   background: white;
-  padding: 20px;
+  padding: 15px;
   margin-top: 33vh;
   border-radius: 15px;
   filter: drop-shadow(5px 2px 5px #000000);
-  /* background:linear-gradient(to left bottom, #e9e9e9, #ebebeb, #d6d6d6, #b1b1b1, #9ca6cb); */
 }
 
-.loginLogoHeader {
-  position: relative;
-  text-align: center;
-  height: 10vh;
+.loginLoadingButton {
+  width: 50%;
 }
 
-.loginLogo {
-  height: 80px;
-  width: 170px;
+.loginInfo {
+  background-color: #000000;
+}
+
+.loginButton {
+  background-color: red;
+  height: 100px;
+  width: 100px;
+}
+
+.progress {
+  background-color: red;
+  height: 100px;
+  width: 100px;
+}
+
+.loginFailure {
+  animation-duration: 1s;
+  animation-name: shake;
+  animation-iteration-count: 3;
+}
+
+.thumbprintFailure{
+  color: red;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
 }
