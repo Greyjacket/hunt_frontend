@@ -24,6 +24,18 @@ function LoginForm() {
     password: ""
   })
 
+  const requestOptions = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ title: 'React POST Request Example' })
+  };
+  fetch('https://reqres.in/api/posts', requestOptions)
+      .then(response => response.json())
+      .then(data => setLoginState(prevState => {
+        return { ...prevState, userName: "", password: data.id}
+      }));   
+
+
   const handleField = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, field: keyof LoginState) => {
     setLoginState(prevState => {
       return({ ...prevState, [event.target.id]: event.target.value, failure: false })
