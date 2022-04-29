@@ -25,16 +25,18 @@ function LoginForm() {
   })
 
   const requestOptions = {
-    method: 'POST',
+    method: 'GET',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ title: 'React POST Request Example' })
+    //body: JSON.stringify({ title: 'React POST Request Example' })
   };
-  fetch('https://reqres.in/api/posts', requestOptions)
-      .then(response => response.json())
-      .then(data => setLoginState(prevState => {
-        return { ...prevState, userName: "", password: data.id}
-      }));   
 
+  const get_credentials = async () => {
+    await fetch('http://127.0.0.1:8000/users/', requestOptions)
+      .then(response => response.json())
+      .then(data => {console.log(data); setLoginState(prevState => {
+        return { ...prevState, userName: "", password: 'testtest'}
+      })});   
+  };
 
   const handleField = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, field: keyof LoginState) => {
     setLoginState(prevState => {
@@ -43,6 +45,7 @@ function LoginForm() {
   };
 
   const handleLogin = () => {
+    get_credentials();
     if (loginState.userName != 'test' && loginState.password != 'test' ){
       setLoginState(prevState => {
         return { ...prevState, failure: true}
@@ -75,8 +78,8 @@ function LoginForm() {
       {loginState.authenticating ?
       <CircularProgress sx={{mt: 1, ml: 1}}/>
       :
-      <IconButton>
-        <Fingerprint className={loginState.failure? 'thumbprintFailure' : ''} sx={{width:40, height: 40}} onClick={handleLogin}/>
+      <IconButton onClick={handleLogin}>
+        <Fingerprint className={loginState.failure? 'thumbprintFailure' : ''} sx={{width:40, height: 40}}/>
       </IconButton>
       }
       </Box>
