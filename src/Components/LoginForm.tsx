@@ -25,17 +25,16 @@ function LoginForm() {
   })
 
   const requestOptions = {
-    method: 'GET',
+    method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    //body: JSON.stringify({ title: 'React POST Request Example' })
+    body: JSON.stringify({'username': loginState.userName, 'password': loginState.password})
   };
 
-  const get_credentials = async () => {
-    await fetch('http://127.0.0.1:8000/users/', requestOptions)
+  const post_credentials = async () => {
+    await fetch('http://127.0.0.1:8000/token', requestOptions)
       .then(response => response.json())
-      .then(data => {console.log(data); setLoginState(prevState => {
-        return { ...prevState, userName: "", password: 'testtest'}
-      })});   
+      .then(data => {console.log('data')})
+      .catch(err => console.log(err))
   };
 
   const handleField = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, field: keyof LoginState) => {
@@ -45,7 +44,7 @@ function LoginForm() {
   };
 
   const handleLogin = () => {
-    get_credentials();
+    let success = post_credentials();
     if (loginState.userName != 'test' && loginState.password != 'test' ){
       setLoginState(prevState => {
         return { ...prevState, failure: true}
