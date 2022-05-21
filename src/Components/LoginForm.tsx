@@ -26,14 +26,14 @@ function LoginForm() {
 
   const requestOptions = {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({'username': loginState.userName, 'password': loginState.password})
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+    body: new URLSearchParams({'username': String(loginState.userName), 'password': String(loginState.password)})
   };
 
   const post_credentials = async () => {
     await fetch('http://127.0.0.1:8000/token', requestOptions)
       .then(response => response.json())
-      .then(data => {console.log('data')})
+      .then(data => {console.log(data)})
       .catch(err => console.log(err))
   };
 
