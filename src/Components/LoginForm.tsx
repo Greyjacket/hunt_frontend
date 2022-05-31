@@ -9,6 +9,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import IconButton from '@mui/material/IconButton';
 import Box from '@mui/material/Box';
 
+
 interface LoginState {
   authenticating: boolean,
   failure: boolean,
@@ -31,9 +32,14 @@ function LoginForm() {
   };
 
   const post_credentials = async () => {
-    await fetch('http://127.0.0.1:8000/token', requestOptions)
-      .then(response => response.json())
-      .then(data => {console.log(data)})
+    await fetch(process.env.REACT_APP_API_KEY + 'token', requestOptions)
+      .then(response => {
+        if(!response.ok){
+          setLoginState(prevState => {
+            return { ...prevState, failure: true}
+          });
+        }      
+      })
       .catch(err => console.log(err))
   };
 
@@ -44,14 +50,12 @@ function LoginForm() {
   };
 
   const handleLogin = () => {
-    let success = post_credentials();
-    if (loginState.userName != 'test' && loginState.password != 'test' ){
-      setLoginState(prevState => {
-        return { ...prevState, failure: true}
-      });    
-    }
     setLoginState(prevState => {
-      return { ...prevState, userName: "", password: ""}
+      return { ...prevState, authenticating: true}
+    });  
+    post_credentials();
+    setLoginState(prevState => {
+      return { ...prevState, authenticating: false, userName: "", password: ""}
     });   
   };
 
