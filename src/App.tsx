@@ -3,18 +3,18 @@ import './App.css';
 import LoginForm from './Components/LoginForm';
 import Dashboard from './Components/Dashboard';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import ProtectedRoute from './pages/ProtectedRoute';
+import ProtectedRoute from './Components/ProtectedRoute';
 import { useState } from 'react';
 
-interface LoginState {
-  authenticating: boolean,
-  failure: boolean,
-  userName: String,
-  password: String
+export interface User {
+  username: String,
 }
 
 function App() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<User>({
+    username: "",
+  })
+
   return (
     <BrowserRouter>
       <Routes>
@@ -27,8 +27,8 @@ function App() {
       <Route
             path='dashboard'
             element={
-              <ProtectedRoute>
-                <Dashboard />
+              <ProtectedRoute user={user}>
+                <Dashboard user={user}/>
               </ProtectedRoute>
             }
           />

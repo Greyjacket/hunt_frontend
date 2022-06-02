@@ -1,6 +1,7 @@
 import { Navigate } from 'react-router-dom';
+import {User} from '../App'
 
-const ProtectedRoute = ({ children, user }) => {
+const ProtectedRoute = ({children}, user: User ) => {
   if (!user) {
     return <Navigate to='/' />;
   }
