@@ -1,5 +1,6 @@
 import React from 'react';
 import {useState, ChangeEvent, MouseEvent} from 'react';
+import { useNavigate } from 'react-router-dom';
 import {FormControl, Input, InputAdornment} from '@mui/material';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import Password from '@mui/icons-material/Password';
@@ -57,6 +58,7 @@ function LoginForm() {
     setLoginState(prevState => {
       return { ...prevState, authenticating: false, userName: "", password: ""}
     });   
+    navigate('/dashboard');
   };
 
   return (

@@ -18,20 +18,21 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route
+              path='/'
+              element={
+                <ProtectedRoute user={user}>
+                  <Dashboard user={user}/>
+                </ProtectedRoute>
+              }
+            />
         <Route path='/login' element={<div className="App">
           <div className='loginFormContainer'>
           <LoginForm/>
           </div>
         </div>}>
       </Route>
-      <Route
-            path='dashboard'
-            element={
-              <ProtectedRoute user={user}>
-                <Dashboard user={user}/>
-              </ProtectedRoute>
-            }
-          />
+
       </Routes>
     </BrowserRouter>
 
