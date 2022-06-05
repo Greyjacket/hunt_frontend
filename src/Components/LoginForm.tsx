@@ -19,6 +19,9 @@ interface LoginState {
 }
 
 function LoginForm() {
+  
+  const navigate = useNavigate();
+  
   const [loginState, setLoginState] = useState<LoginState>({
     authenticating: false,
     failure: false,
