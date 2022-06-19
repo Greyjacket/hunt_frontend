@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import {FormControl, Input, InputAdornment} from '@mui/material';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import Password from '@mui/icons-material/Password';
-import logo from './Images/logo.png';
+import logo from '../Images/logo.png';
 import Fingerprint from '@mui/icons-material/Fingerprint';
 import CircularProgress from '@mui/material/CircularProgress';
 import IconButton from '@mui/material/IconButton';
